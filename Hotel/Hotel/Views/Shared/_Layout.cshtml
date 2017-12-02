@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/scripts")
+
+    <link href="~/Content/fullcalendar.css" rel="stylesheet" />
+
+    <script src="~/Scripts/moment.min.js"></script>
+    @*<script src="~/Scripts/fullcalendar.min.js"></script>*@
+        <script src="~/Scripts/fullcalendar.js"></script>
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Hotel Lavanta", "Index", "AdminRooms", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Rooms", "Index", "AdminRooms")</li>
+                        <li>@Html.ActionLink("Price", "Index", "AdminPrice")</li>
+                        <li>@Html.ActionLink("Photo", "Index", "AdminPhoto")</li>
+                        <li>@Html.ActionLink("Customer", "Index", "AdminCustomer")</li>
+                    </ul>
+                    @*<ul class="nav navbar-nav right" style="float:right;">
+                        @if (Request.IsAuthenticated)
+                        {
+                            <li><strong>@Html.Encode(User.Identity.Name)</strong></li>
+                            <li> @Html.ActionLink("Sign Out", "Logout", "User")</li>
+                        }
+                        else
+                        {
+                            <li> @Html.ActionLink("Register", "Register", "User")</li>
+                            <li>@Html.ActionLink("Sign In", "Login", "User")</li>
+                        }
+                    </ul>*@
+
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        @RenderSection("scripts", required: false)
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")*@
+    @*@RenderSection("scripts", required: false)*@
+</body>
+</html>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Hotel.Models.Rooms>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Rooms</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Feature)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdditionalInformation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adults)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Children)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="col-md-12">
+        <td class="col-md-1">
+            @Html.DisplayFor(modelItem => item.RoomName)
+        </td>
+        <td class="col-md-3">
+            @Html.DisplayFor(modelItem => item.RoomDescription)
+        </td>
+        <td class="col-md-2">
+            @Html.DisplayFor(modelItem => item.Feature)
+        </td>
+        <td class="col-md-2">
+            @Html.DisplayFor(modelItem => item.AdditionalInformation)
+        </td>
+        <td class="col-md-1">
+            @Html.DisplayFor(modelItem => item.Adults)
+        </td>
+        <td class="col-md-1">
+            @Html.DisplayFor(modelItem => item.Children)
+        </td>
+        <td class="col-md-2">
+            @Html.ActionLink("Edit", "Edit", new { id=item.RoomId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RoomId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RoomId })
+        </td>
+    </tr>
+}
+
+</table>
